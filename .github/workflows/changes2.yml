@@ -8,8 +8,6 @@ on:
 jobs:
   check-changes:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs }}
     steps:
     - id: step1
       name: Check for File Changes
