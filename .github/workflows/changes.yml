@@ -1,6 +1,6 @@
 name: Check for changes
 
-on: push
+on: [push, pull_request]
 
 jobs:
   check-changes:
