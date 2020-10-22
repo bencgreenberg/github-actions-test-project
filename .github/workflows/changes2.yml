@@ -16,7 +16,7 @@ jobs:
       uses: nexmo/github-actions/check-docs-changes@check-docs-changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-   smartling-upload:
+  smartling-upload:
     runs-on: ubuntu-latest
     needs: check-changes
     steps:
