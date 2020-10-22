@@ -1,1 +1,7 @@
-markdown in a tutorials path
+---
+title: Test
+description: Test markdown file
+meta_title: Test meta title for markdown file
+---
+
+Markdown content here
