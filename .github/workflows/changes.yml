@@ -8,6 +8,8 @@ on:
 jobs:
   check-changes:
     runs-on: ubuntu-latest
+    outputs:
+      changedfiles: ${{ steps.check-changes.outputs.CHANGEDFILES }}
     steps:
     - id: step1
       name: Check for File Changes
@@ -17,8 +19,10 @@ jobs:
   print-output-from-first-job:
     runs-on: ubuntu-latest
     needs: check-changes
+    strategy:
+      matrix: ${{fromJson(needs.check-changes.outputs.changedfiles)}}
     steps:
     - name: Print our files that changed
-      run: echo ${{fromJson(needs.check-changes)}}
+      run: echo ${{FromJson(strategy.matrix)}}
       # run: echo ${{needs.check-changes.steps.step1.outputs.CHANGEDFILES}}
   
