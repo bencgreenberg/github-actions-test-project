@@ -19,5 +19,5 @@ jobs:
     needs: check-changes
     steps:
     - name: Print our files that changed
-      run: echo ${{check-changes.steps.step1.outputs.CHANGEDFILES}}
+      run: echo ${{jobs.check-changes.steps.step1.outputs.CHANGEDFILES}}
   
