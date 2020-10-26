@@ -23,6 +23,6 @@ jobs:
       matrix: ${{needs.check-changes.outputs.matrix}}
     steps:
     - name: Print our files that changed
-      run: echo ${{fromJson(matrix)}}
+      run: echo ${{matrix}}
       # run: echo ${{needs.check-changes.steps.step1.outputs.CHANGEDFILES}}
   
