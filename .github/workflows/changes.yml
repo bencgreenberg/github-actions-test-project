@@ -9,7 +9,7 @@ jobs:
   check-changes:
     runs-on: ubuntu-latest
     outputs:
-      changedfiles: ${{ steps.check-changes.outputs.CHANGEDFILES }}
+      changedfiles: ${{ steps.check-changes.outputs.matrix }}
     steps:
     - id: step1
       name: Check for File Changes
