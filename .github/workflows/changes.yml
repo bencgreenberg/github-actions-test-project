@@ -13,7 +13,8 @@ jobs:
     steps:
     - id: step1
       name: Check for File Changes
-      uses: nexmo/github-actions/check-docs-changes@check-docs-changes
+      # uses: nexmo/github-actions/check-docs-changes@check-docs-changes
+      run: echo "::set-output name=CHANGEDFILES::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   print-output-from-first-job:
