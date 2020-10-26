@@ -19,6 +19,6 @@ jobs:
     needs: check-changes
     steps:
     - name: Print our files that changed
-      run: echo ${{needs.check-changes}}
+      run: echo ${{parseJSON(needs.check-changes)}}
       # run: echo ${{needs.check-changes.steps.step1.outputs.CHANGEDFILES}}
   
