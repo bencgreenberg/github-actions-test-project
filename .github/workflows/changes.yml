@@ -9,21 +9,21 @@ jobs:
   check-changes:
     runs-on: ubuntu-latest
     outputs:
-      changedfiles: ${{ steps.check-changes.outputs.matrix }}
+      matrix: ${{ steps.check-changes.outputs.matrix }}
     steps:
     - id: step1
       name: Check for File Changes
       # uses: nexmo/github-actions/check-docs-changes@check-docs-changes
-      run: echo "::set-output name=CHANGEDFILES::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   print-output-from-first-job:
     runs-on: ubuntu-latest
     needs: check-changes
     strategy:
-      matrix: ${{needs.check-changes.outputs.changedfiles}}
+      matrix: ${{needs.check-changes.outputs.matrix}}
     steps:
     - name: Print our files that changed
-      run: echo ${{FromJson(matrix)}}
+      run: echo ${{fromJson(matrix)}}
       # run: echo ${{needs.check-changes.steps.step1.outputs.CHANGEDFILES}}
   
