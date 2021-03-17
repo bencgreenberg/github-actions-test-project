@@ -1,0 +1,11 @@
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@main
+        with:
+          repository: sfdc-www/hackathon-inclusive-language
+          token: ${{ secrets.CLONE_SECRET }}
+          path: ./.github/actions/hackathon-inclusive-language
+      - name: Run my action
+        uses: ./.github/actions/hackathon-inclusive-language
